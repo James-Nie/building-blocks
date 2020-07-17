@@ -1,0 +1,58 @@
+ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+} 
+
+  header{
+    text-align: center;
+  }
+
+  .content{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    height: 400px;
+  }
+
+  .left {
+    width: 260px;
+    border: 1px solid #ccc;
+  }
+  .left li {
+    height: 50px;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    cursor: move;
+    margin: 5px;
+  }
+  .center {
+    display: inline-flex;
+    width: 100%;
+    border: 2px solid rgb(107 89 227);
+  }
+  .right {
+    display: inline-flex;
+    width: 300px;
+    border: 1px solid #ccc;
+  }
+
+  .delete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+
+  .draggle {
+    position: relative;
+  }
+
+  .draggle:hover .delete {
+    display: block;
+  }
+  .my-btn{
+      border-radius: 3px;
+  }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue drag</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>搭积木</h1>
+    </header>
+    <div class="content">
+      <ul class="left">
+        <li v-for="p in comList" :key="p.id" draggable="true" @dragstart="drag(p)">{{p.name}}</li>
+      </ul>
+      <div @drop="drop" @dragover="allowDrop" class="center">
+        <div @click="handleClick(p)" v-for="p in comRenderList">
+          <draggle :cdata="p" @delete="deleteComponent">
+            <component :is="p.name" :key="p.id" :models="p.models" :styles="p.styles" style="cursor: pointer;">
+            </component>
+          </draggle>
+        </div>
+      </div>
+      <div class="right">
+        <div v-if="currModel">
+          <h3>{{currModel.name}}</h3>
+          <div>数据</div>
+          <ul v-if="currModel.models">
+            <li v-if="currModel.models.text">
+              <label>文字：</label><input v-model="currModel.models.text">
+            </li>
+            <li v-if="currModel.models.src">
+              <label>图片：</label><input v-model="currModel.models.src">
+            </li>
+          </ul>
+          <br/>
+          <div>样式</div>
+          <ul v-if="currModel.styles">
+            <li v-if="currModel.styles.width">
+              <label>宽度：</label><input v-model="currModel.styles.width">
+            </li>
+            <li v-if="currModel.styles.height">
+              <label>高度：</label><input v-model="currModel.styles.height">
+            </li>
+            <li v-if="currModel.styles.background">
+              <label>背景色：</label><input v-model="currModel.styles.background">
+            </li>
+            <li v-if="currModel.styles.padding">
+              <label>内边距：</label><input v-model="currModel.styles.padding">
+            </li>
+            <li v-if="currModel.styles.margin">
+              <label>外边距：</label><input v-model="currModel.styles.margin">
+            </li>
+            <li v-if="currModel.styles.fontSize">
+              <label>字体大小：</label><input v-model="currModel.styles.fontSize">
+            </li>           
+          </ul>
+        </div>
+      </div>
+    </div>
+    <button @click="submit">提交</button>
+  </div>
+
+</body>
+<script src="myComponents.js"></script>
+<script src="myApp.js"></script>
+
+</html>

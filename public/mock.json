@@ -1,0 +1,35 @@
+[
+    {
+        "name": "myText",
+        "models": {
+            "text": "这是一段文字"
+        },
+        "styles": {
+            "background": "#ccd",
+            "padding": "20px",
+            "fontSize": "16px",
+            "margin": "10px"
+        }
+    },
+    {
+        "name": "myImage",
+        "models": {
+            "src": "car.jpg"
+        },
+        "styles": {
+            "width": "200px",
+            "height": "100px",
+            "padding": "20px"
+        }
+    },
+    {
+        "name": "myButton",
+        "models": {
+            "text": "点此提交"
+        },
+        "styles": {
+            "width": "200px",
+            "height": "100px"
+        }
+    }
+]
